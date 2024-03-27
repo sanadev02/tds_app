@@ -7,8 +7,8 @@ import {
     TextInput,
     Text,
     View,
-    CheckBox,
     Alert,
+    Image
 } from 'react-native';
 import React, { useLayoutEffect, useState, useRef } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -21,21 +21,6 @@ import { AntDesign } from '@expo/vector-icons';
 import DatePicker from 'react-native-date-ranges';
 import { BottomModal, ModalButton, ModalContent, ModalFooter, ModalTitle, SlideAnimation } from 'react-native-modals';
 
-// import {
-//     Button,
-//     CalendarCell,
-//     CalendarGrid,
-//     DateInput,
-//     DateRangePicker,
-//     DateSegment,
-//     Dialog,
-//     Group,
-//     Heading,
-//     Label,
-//     Popover,
-//     RangeCalendar
-// } from 'react-aria-components';
-
 const HomeScreen = () => {
     const navigation = useNavigation();
     const route = useRoute();
@@ -45,10 +30,6 @@ const HomeScreen = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [isSelected, setSelection] = useState(false);
     const [selectedDates, setSelectedDates] = useState();
-    // const handleDateChange = (range) => {
-    //   setSelectedRange(range);
-    // };
-
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -106,13 +87,14 @@ const HomeScreen = () => {
             )
         }
         if (route.params && selectedDates) {
-            navigation.navigate("Places", {
-                rooms: rooms,
-                adults: adults,
-                selectedDates: selectedDates,
-                children: children,
-                place: place
-            })
+            navigation.navigate("Places",
+                {
+                    place: place,
+                    selectedDates: selectedDates,
+                    rooms: rooms,
+                    adults: adults,
+                    children: children,
+                })
         }
     };
 
@@ -120,7 +102,6 @@ const HomeScreen = () => {
         <>
             <View>
                 <Header />
-
                 <ScrollView >
                     <View style={{
                         margin: 20,
@@ -142,63 +123,34 @@ const HomeScreen = () => {
                         <Pressable
                             style={styles.pressable}>
                             <Feather name="calendar" size={24} color="#B19F8B" />
-
-                            <View>
-                                <DatePicker
-                                    style={{ width: 350, height: 45, borderRadius: 0, borderWidth: 0, boderColor: "transparent" }}
-                                    customStyles={{
-                                        placeholderText: {
-                                            fontSize: 20,
-                                            flexDirection: "row",
-                                            alignItems: "center",
-                                            marginRight: "auto"
-                                        },
-                                        headerStyle: {
-                                            backgroundColor: "#003580"
-                                        },
-                                        contentText: {
-                                            fontSize: 15,
-                                            flexDirection: "row",
-                                            alignItems: "center",
-                                            marginRight: "auto"
-                                        }
-                                    }}
-                                    selectedByColor="#0047AB"
-                                    customButton={(onConfirm) => customButton(onConfirm)}
-                                    onConfirm={(startDate, endDate) => setSelectedDates(startDate, endDate)}
-                                    allowFontScaling={false}
-                                    placeholder={'Apr 27, 2018 → Jul 10, 2018'}
-                                    mode={'range'}
-                                />
-                            </View>
-
-                            {/* <DateRangePicker >
-                  <Label >Trip dates</Label>
-                  <Group style={styles.reactAriaGroup}>
-                    <DateInput style={styles.startSlotSpan} slot="start">
-                      {(segment) => <DateSegment style={styles.reactAriaDateInput} segment={segment} />}
-                    </DateInput>
-                    <span style={styles.startSlotSpan} aria-hidden="true">–</span>
-                    <DateInput style={styles.endSlot} slot="end">
-                      {(segment) => <DateSegment style={styles.reactAriaDateInput} segment={segment} />}
-                    </DateInput>
-                    <Button style={styles.reactAriaButton}>▼</Button>
-                  </Group>
-                  <Popover style={styles.reactBox}>
-                    <Dialog>
-                      <RangeCalendar>
-                        <header style={styles.header}>
-                          <Button style={styles.reactAriaButton2} slot="previous">◀</Button>
-                          <Heading />
-                          <Button style={styles.reactAriaButton2} slot="next">▶</Button>
-                        </header>
-                        <CalendarGrid style={styles.table}>
-                          {(date) => <CalendarCell date={date} />}
-                        </CalendarGrid>
-                      </RangeCalendar>
-                    </Dialog>
-                  </Popover>
-                </DateRangePicker> */}
+                            <DatePicker
+                                style={{ width: 350, height: 30, borderRadius: 0, borderWidth: 0, boderColor: "transparent" }}
+                                customStyles={{
+                                    placeholderText: {
+                                        fontSize: 15,
+                                        flexDirection: "row",
+                                        alignItems: "center",
+                                        marginRight: "auto",
+                                    },
+                                    headerStyle: {
+                                        backgroundColor: "#4D5E68",
+                                        color: "#4D5E68",
+                                        fontSize: 0
+                                    },
+                                    contentText: {
+                                        fontSize: 15,
+                                        flexDirection: "row",
+                                        alignItems: "center",
+                                        marginRight: "auto"
+                                    },
+                                }}
+                                selectedByColor="#0047AB"
+                                customButton={(onConfirm) => customButton(onConfirm)}
+                                onConfirm={(startDate, endDate) => setSelectedDates(startDate, endDate)}
+                                allowFontScaling={false}
+                                placeholder={'Select Your Dates'}
+                                mode={'range'}
+                            />
                         </Pressable>
 
                         {/* Rooms and Guests */}
@@ -208,18 +160,18 @@ const HomeScreen = () => {
                             <Octicons name="person" size={24} color="#B19F8B" />
                             <TextInput
                                 style={{ flex: 1 }}
-                                // placeholderTextColor="black"
+                                placeholderTextColor="black"
                                 placeholder={`${rooms} Room • ${adults} Adults • ${children} Children`} />
                         </Pressable>
 
                         {/* Eco-friendly Options Only */}
                         <View style={styles.pressable}>
-                            <CheckBox
+                            {/* <CheckBox
                                 value={isSelected}
                                 onValueChange={setSelection}
                                 onCheckColor={'#C1B891'}
                                 style={{ borderColor: "#C1B891" }}
-                            />
+                            /> */}
                             <Text>Eco-friendly Options Only</Text>
                         </View>
 
@@ -270,6 +222,44 @@ const HomeScreen = () => {
                             </Text>
                         </Pressable>
                     </ScrollView>
+
+                    <View>
+                        <Text
+                            style={{
+                                marginHorizontal: 20,
+                                marginTop: 15,
+                                fontSize: 17,
+                                fontWeight: "500"
+                            }}
+                        >
+                            Trending Destinations
+                        </Text>
+                        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                            <Pressable style={styles.scrollStacks}>
+                                <Text style={styles.stackText}>
+                                    Barcelona, Spain </Text>
+                                <Image style={styles.scrollImage} source={require('../assets/barcelona-beach.jpeg')} />
+                            </Pressable>
+
+                            <Pressable style={styles.scrollStacks}>
+                                <Text style={styles.stackText}>
+                                    Florence, Italy
+                                </Text>
+                                <Image style={styles.scrollImage} source={require('../assets/florence.jpeg')} />
+                            </Pressable>
+
+                            <Pressable style={styles.scrollStacks}>
+                                <Text
+                                    style={styles.stackText}
+                                >
+                                    Santorini, Greece
+                                </Text>
+                                <Image style={styles.scrollImage} source={require('../assets/Santorini.jpeg')} />
+                            </Pressable>
+                        </ScrollView>
+                    </View>
+                    <View style={{ marginBottom: 80 }} />
+
                 </ScrollView>
             </View>
 
@@ -454,6 +444,10 @@ const HomeScreen = () => {
 export default HomeScreen
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        paddingTop: StatusBar.currentHeight,
+    },
     pressable: {
         flexDirection: "row",
         alignItems: "center",
@@ -478,7 +472,7 @@ const styles = StyleSheet.create({
     },
     scrollStack: {
         width: 200,
-        height: 180,
+        height: 200,
         marginTop: 10,
         // borderColor: "#5885AF",
         // borderWidth: 2,
@@ -486,120 +480,14 @@ const styles = StyleSheet.create({
         padding: 20,
         marginHorizontal: 10,
         backgroundColor: "#B1BEC4",
+        flexDirection: "column"
     },
+
     stackText: {
         color: "black",
         fontSize: 15,
         fontWeight: "500",
-        marginTop: 10
-    },
-    reactAriaGroup: {
-        display: 'flex',
-        alignItems: 'center',
-        width: 'fit-content',
-        minWidth: 'auto',
-        maxWidth: 'auto',
-        boxSizing: 'border-box',
-        overflow: 'auto',
-        position: 'relative',
-        padding: 4,
-        borderWidth: 1,
-        borderStyle: 'transparent',
-        borderRadius: 6,
-        whiteSpace: 'nowrap',
-    },
-    pressed: {
-        boxShadow: 'none',
-        backgroundColor: 'white',
-    },
-    focusWithin: {
-        outlineWidth: 2,
-        outlineStyle: 'solid',
-        outlineColor: 'var(--focus-ring-color)',
-        outlineOffset: -1,
-    },
-    startSlotSpan: {
-        paddingVertical: 0,
-        paddingHorizontal: 0,
-        // minWidth: 100,
-        // minHeight: 100,
-        overflow: 'auto',
-        whiteSpace: 'nowrap',
-        display: 'flex',
-        flexDirection: 'row'
-    },
-    endSlot: {
-        // marginRight: 32, // Convert 2rem to pixels
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'row',
-        paddingVertical: 0,
-        paddingHorizontal: 0,
-        minWidth: 10,
-        // minHeight: 100,
-        overflow: 'auto',
-        whiteSpace: 'nowrap',
-    },
-    reactAriaButton: {
-        backgroundColor: '#4D5E68',
-        color: 'white',
-        borderWidth: 0,
-        borderRadius: 4,
-        borderStyle: 'solid',
-        marginLeft: 5,
-        marginRight: 5,
-        width: 22, // Convert 1.429rem to pixels
-        height: 22, // Convert 1.429rem to pixels
-        padding: 1,
-        fontSize: 14, // Convert 0.857rem to pixels
-        boxSizing: 'content-box',
-        flexShrink: 0,
-        position: 'sticky',
-        right: 0,
-    },
-    reactAriaButton2: {
-        backgroundColor: '#4D5E68',
-        color: 'white',
-        borderWidth: 0,
-        borderRadius: 4,
-        borderStyle: 'solid',
-        marginLeft: 10,
-        marginRight: 10,
-        marginTop: 20,
-        width: 22, // Convert 1.429rem to pixels
-        height: 22, // Convert 1.429rem to pixels
-        padding: 1,
-        fontSize: 14, // Convert 0.857rem to pixels
-        boxSizing: 'content-box',
-        paddingVertical: 0,
-        paddingHorizontal: 0,
-    },
-    focusVisible: {
-        outlineWidth: 2,
-        outlineStyle: 'solid',
-        outlineColor: 'black',
-        outlineOffset: 2,
-    },
-    reactAriaDateInput: {
-        width: 'auto',
-        minWidth: 'auto',
-        padding: 0,
-        borderWidth: 0,
-        outlineWidth: 0,
-    },
-    reactAriaPopover: {
-        backgroundColor: '#C1B891',
-        color: 'black',
-        borderWidth: 0,
-        borderRadius: 4,
-        borderStyle: 'solid',
-        marginLeft: 5,
-        marginRight: 5,
-        width: 22, // Convert 1.429rem to pixels
-        height: 22, // Convert 1.429rem to pixels
-        padding: 1,
-        fontSize: 14, // Convert 0.857rem to pixels
-        boxSizing: 'content-box',
+        // marginTop: 5
     },
     reactBox: {
         backgroundColor: 'white',
@@ -615,5 +503,32 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         marginRight: 20,
         padding: 10,
+    },
+    scrollImage: {
+        width: 200,
+        height: 160,
+        marginTop: 10,
+        marginBottom:10,
+        borderColor: "#a2d2df",
+        borderWidth: 2,
+        borderRadius: 5,
+        // padding: 20,
+        marginHorizontal: 10,
+        marginLeft: -20
+        // backgroundColor: "#B1BEC4",
+        // backgroundImage:"",
+    },
+    scrollStacks: {
+        width: 200,
+        height: 200,
+        marginTop: 10,
+        marginBottom:10,
+        // borderColor: "#5885AF",
+        // borderWidth: 2,
+        borderRadius: 10,
+        padding: 20,
+        marginHorizontal: 10,
+        backgroundColor: "#a2d2df",
+        flexDirection: "column"
     },
 })
