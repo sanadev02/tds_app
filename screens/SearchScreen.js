@@ -28,8 +28,8 @@ const SearchScreen = () => {
                     rating: 3.6,
                     address:
                         "346, Hennur Main Road, Post, Kalyan Nagar, 560043 Bangalore, India ",
-                    oldPrice: 4600,
-                    newPrice: 3312,
+                    oldPrice: 43.70,
+                    newPrice: 31.46,
                     latitude: "13.0359",
                     longitude: "77.6431",
                     photos: [
@@ -119,8 +119,8 @@ const SearchScreen = () => {
                     rating: 4,
                     address:
                         " 648/B, Regenta Inn Indiranagar, Binnamangala 1st stage Indiranagar, 560038 Bangalore, India",
-                    oldPrice: 4201,
-                    newPrice: 3327,
+                    oldPrice: 39.91,
+                    newPrice: 31.60,
                     latitude: "12.9784",
                     longitude: "77.6408",
                     photos: [
@@ -208,8 +208,8 @@ const SearchScreen = () => {
                     rating: 4.2,
                     address:
                         "Down Town Park, Sadahalli Gate, Kempegowda Int'l Airport Rd, 562157 Bangalore, India",
-                    oldPrice: 3800,
-                    newPrice: 3078,
+                    oldPrice: 26.10,
+                    newPrice: 29.24,
                     latitude: "13.1989",
                     longitude: "77.7068",
                     image:
@@ -303,8 +303,8 @@ const SearchScreen = () => {
                     rating: 3.5,
                     address:
                         "CFC-4/C, Road No-2 Hardware Park, Beside TCS, Tukkuguda, 501351 Hyderabad, India",
-                    oldPrice: 4332,
-                    newPrice: 3200,
+                    oldPrice: 41.15,
+                    newPrice: 30.40,
                     photos: [
                         {
                             id: "140",
@@ -390,8 +390,8 @@ const SearchScreen = () => {
                     rating: 4.5,
                     address:
                         "Plot 73, Shilpi Valley, Gafoor Nagar, Madhapur, Opp Hitech City Mindspace, Hyderabad",
-                    oldPrice: 5200,
-                    newPrice: 4100,
+                    oldPrice: 49.40,
+                    newPrice: 38.95,
                     photos: [
                         {
                             id: "160",

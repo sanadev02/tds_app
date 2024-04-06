@@ -43,13 +43,13 @@ const HomeScreen = () => {
             },
             headerStyle: {
                 backgroundColor: "#4D5E68",
-                height: 75,
+                height: 100,
                 borderBottomColor: "transparent",
                 shadowColor: "transparent",
             },
-            headerRight: () => {
-                <Ionicons name="notifications-outline" size={24} color="#B19F8B" />
-            }
+            headerRight: () => (
+                <Ionicons name="notifications-outline" size={24} color="#B19F8B" style={{ marginRight: 12 }} />
+            )
         })
 
     }, []);
@@ -472,13 +472,13 @@ const styles = StyleSheet.create({
     },
     scrollStack: {
         width: 200,
-        height: 200,
+        height: 180,
         marginTop: 10,
         // borderColor: "#5885AF",
         // borderWidth: 2,
         borderRadius: 10,
         padding: 20,
-        marginHorizontal: 10,
+        marginHorizontal: 3,
         backgroundColor: "#B1BEC4",
         flexDirection: "column"
     },
@@ -505,29 +505,29 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     scrollImage: {
-        width: 200,
+        width: 246,
         height: 160,
         marginTop: 10,
-        marginBottom:10,
-        borderColor: "#a2d2df",
-        borderWidth: 2,
-        borderRadius: 5,
+        // marginBottom:10,
+        // borderColor: "#a2d2df",
+        // borderWidth: 2,
+        borderRadius: 10,
         // padding: 20,
         marginHorizontal: 10,
-        marginLeft: -20
+        marginLeft: -8
         // backgroundColor: "#B1BEC4",
         // backgroundImage:"",
     },
     scrollStacks: {
-        width: 200,
+        width: 250,
         height: 200,
         marginTop: 10,
-        marginBottom:10,
+        marginBottom: 10,
         // borderColor: "#5885AF",
         // borderWidth: 2,
         borderRadius: 10,
-        padding: 20,
-        marginHorizontal: 10,
+        padding: 10,
+        marginHorizontal: 3,
         backgroundColor: "#a2d2df",
         flexDirection: "column"
     },

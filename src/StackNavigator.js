@@ -1,6 +1,6 @@
-import { StyleSheet, Tab, Screen, Text, View } from 'react-native'
-import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { StyleSheet, Tab, Screen, Text, View } from 'react-native';
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen.js';
 import SavedScreen from '../screens/SavedScreen';
@@ -12,6 +12,11 @@ import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import SearchScreen from '../screens/SearchScreen';
 import PlacesScreen from '../screens/PlacesScreen';
+import MapScreen from '../screens/MapScreen.js';
+import PropertyInfoScreen from '../screens/PropertyInfoScreen.js';
+import RoomsScreen from '../screens/RoomsScreen.js';
+import UsersScreen from '../screens/UsersScreen.js';
+import ConfirmationScreen from '../screens/ConfirmationScreen.js';
 
 const StackNavigator = () => {
     const Tab = createBottomTabNavigator();
@@ -21,7 +26,7 @@ const StackNavigator = () => {
         return (
             <Tab.Navigator>
                 <Tab.Screen name="Home" component={HomeScreen} options={{
-                    tabBarLabel: "Home", headerIcon: ({ focused }) => focused ? (
+                    tabBarLabel: "Home", tabBarIcon: ({ focused }) => focused ? (
                         <Entypo name="home" size={24} color="#003580" />
                     ) : (
                         <AntDesign name="home" size={24} color="black" />
@@ -30,7 +35,7 @@ const StackNavigator = () => {
                 />
 
                 <Tab.Screen name="Saved" component={SavedScreen} options={{
-                    tabBarLabel: "Saved", headerIcon: ({ focused }) => focused ? (
+                    tabBarLabel: "Saved", tabBarIcon: ({ focused }) => focused ? (
                         <AntDesign name="heart" size={24} color="#003580" />
                     ) : (
                         <AntDesign name="hearto" size={24} color="black" />
@@ -39,7 +44,7 @@ const StackNavigator = () => {
                 />
 
                 <Tab.Screen name="Bookings" component={BookingScreen} options={{
-                    tabBarLabel: "Bookings", headerIcon: ({ focused }) => focused ? (
+                    tabBarLabel: "Bookings", tabBarIcon: ({ focused }) => focused ? (
                         <Ionicons name="notifications" size={24} color="#003580" />
                     ) : (
                         <Ionicons name="notifications-outline" size={24} color="black" />
@@ -48,7 +53,7 @@ const StackNavigator = () => {
                 />
 
                 <Tab.Screen name="Profile" component={ProfileScreen} options={{
-                    tabBarLabel: "Profile", headerIcon: ({ focused }) => focused ? (
+                    tabBarLabel: "Profile", tabBarIcon: ({ focused }) => focused ? (
                         <Ionicons name="person" size={24} color="#003580" />
                     ) : (
                         <Ionicons name="person-outline" size={24} color="black" />
@@ -65,7 +70,13 @@ const StackNavigator = () => {
             <Stack.Navigator>
                 <Stack.Screen name="Main" component={BottomTabs} options={{ headerShown: false }} />
                 <Stack.Screen name="Search" component={SearchScreen} options={{ headerShown: false }} />
-                <Stack.Screen name="Places" component={PlacesScreen} />
+                <Stack.Screen name="Places" component={PlacesScreen} options={{ headerShown: true }} />
+                <Stack.Screen name="Map" component={MapScreen} options={{ headerShown: true }} />
+                <Stack.Screen name="Info" component={PropertyInfoScreen} options={{ headerShown: true }} />
+                <Stack.Screen name="Rooms" component={RoomsScreen} options={{ headerShown: true }} />
+                <Stack.Screen name="User" component={UsersScreen} options={{ headerShown: true }} />
+                <Stack.Screen name="Confirmation" component={ConfirmationScreen} options={{ headerShown: true }} />
+
             </Stack.Navigator>
         </NavigationContainer>
     )
@@ -74,3 +85,7 @@ const StackNavigator = () => {
 export default StackNavigator
 
 const styles = StyleSheet.create({})
+
+// Tab navigator need fixing
+// Slice function in property info screen needs fixing
+// search button on home screen needs fixing

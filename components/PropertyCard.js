@@ -2,26 +2,57 @@ import { Dimensions, Pressable, StyleSheet, Text, View, Image, StatusBar, SafeAr
 import React from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
-const PropertyCard = ({ rooms, children, property, adults, selectedDates, AvailableRooms }) => {
+const PropertyCard = ({
+    rooms,
+    children,
+    property,
+    adults,
+    selectedDates,
+    availableRooms
+}) => {
     const { width, height } = Dimensions.get("window");
+    const navigation = useNavigation();
     return (
         <SafeAreaView style={styles.container} >
             <View>
-                <Pressable style={styles.props}>
+                <Pressable 
+                onPress={() => navigation.navigate("Info", {
+                    name:property.name,
+                    rating:property.rating,
+                    oldPrice:property.oldPrice,
+                    newPrice:property.newPrice,
+                    photo:property.photo,
+                    availableRooms:property.rooms,
+                    adults:adults,
+                    children:children,
+                    rooms:rooms,
+                    selectedDates:selectedDates
+                })}
+                style={styles.props}>
                     <View>
-                        <Image style={{ height: height / 3.5, width: width - 270 }} source={{ uri: property.image }} />
+                        <Image
+                            style={{ height: height / 3.5, width: width - 270 }}
+                            source={{ uri: property.image }}
+                        />
                     </View>
                     <View style={styles.PropContainer}>
                         <View style={styles.propName}>
-                            <Text style={styles.name}>{property.name}</Text>
+                            <Text style={styles.name}>
+                                {property.name}
+                            </Text>
                             <AntDesign name="hearto" size={24} color="black" />
                         </View>
                         <View style={styles.ratingView}>
                             <MaterialIcons name="stars" size={24} color="black" />
-                            <Text>{property.rating}</Text>
+                            <Text>
+                                {property.rating}
+                            </Text>
                             <View style={styles.propRating}>
-                                <Text style={styles.ratingText}>Genius Level</Text>
+                                <Text style={styles.ratingText}>
+                                    Genius Level
+                                </Text>
                             </View>
                         </View>
                         <Text style={styles.address}>
@@ -77,14 +108,14 @@ const styles = StyleSheet.create({
     },
     name: {
         width: 200,
-        fontSize:16
+        fontSize: 16
     },
     PropContainer: {
         padding: 10
     },
     propRating: {
         backgroundColor: "#6CB4EE",
-        paddingVertical:3,
+        paddingVertical: 3,
         borderRadius: 5,
         width: 100,
     },
@@ -110,36 +141,36 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: "500"
     },
-    priceChange:{
-        marginTop:5,
-        flexDirection:"row",
-        alignItems:"center",
-        gap:8
+    priceChange: {
+        marginTop: 5,
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 8
     },
-    oldPrice:{
-        color:"red",
-        fontSize:14,
-        textDecorationLine:"line-through"
+    oldPrice: {
+        color: "red",
+        fontSize: 14,
+        textDecorationLine: "line-through"
     },
-    newPrice:{
-        fontSize:18
+    newPrice: {
+        fontSize: 18
     },
-    roomView:{
-        marginTop:6
+    roomView: {
+        marginTop: 6
     },
-    roomText:{
-       fontSize:16,
-       color:"grey", 
+    roomText: {
+        fontSize: 16,
+        color: "grey",
     },
     dealsView: {
         backgroundColor: "#6082B6",
-        paddingVertical:3,
-        marginTop:3,
+        paddingVertical: 3,
+        marginTop: 3,
         borderRadius: 5,
         width: 150,
     },
-    dealText:{
-        textAlign:"center",
-        color:"white"
+    dealText: {
+        textAlign: "center",
+        color: "white"
     }
 })
