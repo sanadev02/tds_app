@@ -19,7 +19,7 @@ const RoomsScreen = () => {
                 alignItems: "center"
             },
             headerStyle: {
-                backgroundColor: "#4D5E68",
+                backgroundColor: "#455D64",
                 height: 80,
                 borderBottomColor: "transparent",
                 shadowColor: "transparent",
@@ -90,8 +90,8 @@ const RoomsScreen = () => {
                             children: route.params.children,
                             adults: route.params.adults,
                             rating: route.params.rating,
-                            startDate: route.params.startDate,
-                            endDate: route.params.endDate,
+                            departDate: route.params.departDate,
+                            returnDate: route.params.returnDate,
                         })
                     }
                     style={styles.reservePress}

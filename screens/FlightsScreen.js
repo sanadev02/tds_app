@@ -1,5 +1,3 @@
-// Hotel Booking Screen
-
 import {
     Button,
     StyleSheet,
@@ -12,19 +10,21 @@ import {
     Alert,
     Image
 } from 'react-native';
-import React, { useLayoutEffect, useState, useRef } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import Header from '../components/Header';
 import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import DateTimePicker from '@react-native-community/datetimepicker';
 import { BottomModal, ModalButton, ModalContent, ModalFooter, ModalTitle, SlideAnimation } from 'react-native-modals';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import { LinearGradient } from 'expo-linear-gradient';
+import FlightOptionItem from '../components/FlightOptionItem';
 
-const HomeScreen = () => {
+const FlightsScreen = () => {
     const navigation = useNavigation();
     const route = useRoute();
     const [rooms, setRooms] = useState(1);
@@ -32,8 +32,9 @@ const HomeScreen = () => {
     const [children, setChildren] = useState(0);
     const [modalVisible, setModalVisible] = useState(false);
     const [isSelected, setSelection] = useState(false);
-
-
+    const [from, setFrom] = useState('');
+    const [to, setTo] = useState('');
+    const [selectedAirport, setSelectedAirport] = useState('');
     const [departDate, setDepartDate] = useState(new Date());
     const [returnDate, setReturnDate] = useState(new Date());
 
@@ -42,7 +43,7 @@ const HomeScreen = () => {
             headerShown: true,
             title: "Travel Destination System",
             headerTitleStyle: {
-                fontSize: 24,
+                fontSize: 20,
                 fontWeight: "bold",
                 color: "#B19F8B",
                 alignItems: "center"
@@ -57,8 +58,8 @@ const HomeScreen = () => {
                 <Ionicons name="notifications-outline" size={24} color="#B19F8B" style={{ marginRight: 12 }} />
             )
         })
-
     }, []);
+
     const customButton = (onConfirm) => {
         return (
             <Button
@@ -76,57 +77,53 @@ const HomeScreen = () => {
 
     console.log(route.params);
 
-    const searchPlaces = (place) => {
-        if (!route.params || !departDate || !returnDate) {
-            Alert.alert(
-                "Invalid Details",
-                "Please enter all the details",
-                [
-                    {
-                        text: "Cancel",
-                        onPress: () => console.log("Cancel Pressed"),
-                        style: "cancel"
-                    },
-                    { text: "OK", onPress: () => console.log("OK Pressed") }
-                ],
-                { cancelable: false }
-            )
-        }
-        if (route.params && departDate && returnDate) {
-            navigation.navigate("Places",
-                {
-                    place: place,
-                    departDate: departDate,
-                    returnDate: returnDate,
-                    rooms: rooms,
-                    adults: adults,
-                    children: children,
-                })
-        }
+    const onSearch = async (FlightData) => {
+        console.log(FlightData);
+    }
+    const onSearchPress = () => {
+        onSearch({ from, to, departDate, returnDate });
     };
 
+    // Function to handle selecting an airport
+    const handleAirportSelect = (location) => {
+        setSelectedAirport(location);
+    };
     return (
         <>
-            {/* <LinearGradient colors={['#4D5E68','white']}> */}
             <LinearGradient colors={['#4D5E68', '#96BBBB', 'white',]}>
-
                 <View>
                     <Header />
-                    <ScrollView >
+                    <ScrollView>
                         <View style={{
                             margin: 20,
                             borderColor: "#B19F8B",
                             borderWidth: 3,
                             borderRadius: 6
                         }}>
-                            {/* Destination */}
+
+                            {/* Departures */}
                             <Pressable
-                                onPress={() => navigation.navigate("Search")}
+                                onPress={() => navigation.navigate("Airport")}
                                 style={styles.pressable}>
-                                <Feather name="search" size={24} color="#B19F8B" />
+                                <FontAwesome5 name="plane-departure" size={24} color="#B19F8B" />
                                 <TextInput
+                                    placeholder="Enter Your Departure Location"
                                     placeholderTextColor="black"
-                                    placeholder={route?.params ? route.params.input : "Enter Your Destination"} />
+                                    onChangeText={setFrom}
+                                />
+                                {/* <FlightOptionItem selectedAirport={selectedAirport} onAirportSelect={handleAirportSelect} /> */}
+                            </Pressable>
+                            {/* Arrivals */}
+                            <Pressable
+                                onPress={() => navigation.navigate("Airport")}
+                                style={styles.pressable}>
+                                <FontAwesome5 name="plane-arrival" size={24} color="#B19F8B" />
+                                <TextInput
+                                    placeholder="Enter Your Arrival Location"
+                                    placeholderTextColor="black"
+                                    value={to}
+                                    onChangeText={setTo}
+                                />
                             </Pressable>
 
                             {/* Destination Dates */}
@@ -140,8 +137,7 @@ const HomeScreen = () => {
                                     }
                                 />
                                 <Text
-                                    style={{ marginLeft: 10, color: '#B19F8B', fontSize: 24 }}
-                                >
+                                    style={{ marginLeft: 10, color: '#B19F8B', fontSize: 24 }}>
                                     |
                                 </Text>
                                 <DateTimePicker
@@ -161,7 +157,7 @@ const HomeScreen = () => {
                                 <TextInput
                                     style={{ flex: 1 }}
                                     placeholderTextColor="black"
-                                    placeholder={`${rooms} Room • ${adults} Adults • ${children} Children`} />
+                                    placeholder={`${adults} Adults • ${children} Children`} />
                             </Pressable>
 
                             {/* Eco-friendly Options Only */}
@@ -177,13 +173,14 @@ const HomeScreen = () => {
 
                             {/* Search Button */}
                             <Pressable
-                                onPress={() => searchPlaces(route?.params.input)}
+                                onPress={onSearchPress}
                                 style={styles.search}>
                                 <Text style={styles.searchText}>
                                     Search
                                 </Text>
                             </Pressable>
                         </View>
+
 
                         <Text
                             style={{
@@ -195,27 +192,21 @@ const HomeScreen = () => {
                             Explore Sustainable Travel
                         </Text>
                         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-
-                            {/* <Pressable style={styles.scrollStack}> */}
-                                <LinearGradient colors={['white','#96BBBB',]} style={styles.scrollStack}>
+                            <Pressable style={styles.scrollStack}>
                                 <FontAwesome name="plane" size={24} color="black" />
                                 <Text style={styles.stackText}>
                                     Discover eco-friendly travel options to any destination, from anywhere
                                 </Text>
-                                </LinearGradient>
-                            {/* </Pressable> */}
+                            </Pressable>
 
-                            {/* <Pressable style={styles.scrollStack}> */}
-                                <LinearGradient colors={['white','#96BBBB',]} style={styles.scrollStack}>
+                            <Pressable style={styles.scrollStack}>
                                 <Ionicons name="calendar-outline" size={24} color="black" />
                                 <Text style={styles.stackText}>
                                     Compare flight options from a range of providers, and select the greenest tickets for your journey.
                                 </Text>
-                                </LinearGradient>
-                            {/* </Pressable> */}
+                            </Pressable>
 
-                            {/* <Pressable style={styles.scrollStack}> */}
-                            <LinearGradient colors={['white','#96BBBB',]} style={styles.scrollStack}>
+                            <Pressable style={styles.scrollStack}>
                                 <AntDesign name="tago" size={24} color="black" />
                                 <Text
                                     style={{
@@ -226,7 +217,7 @@ const HomeScreen = () => {
                                 >
                                     Discover the most economical times to fly, and create Eco-Alerts to book when the price fits within your budget
                                 </Text>
-                            </LinearGradient>
+                            </Pressable>
                         </ScrollView>
 
                         <View>
@@ -241,29 +232,27 @@ const HomeScreen = () => {
                                 Trending Destinations
                             </Text>
                             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                                {/* <Pressable style={styles.scrollStacks}> */}
-                                <LinearGradient colors={['#96BBBB','white',]} style={styles.scrollStacks}>
-
+                                <Pressable style={styles.scrollStacks}>
                                     <Text style={styles.stackText}>
                                         Barcelona, Spain </Text>
                                     <Image style={styles.scrollImage} source={require('../assets/barcelona-beach.jpeg')} />
-                                </LinearGradient>
+                                </Pressable>
 
-                                <LinearGradient colors={['#96BBBB','white',]} style={styles.scrollStacks}>
+                                <Pressable style={styles.scrollStacks}>
                                     <Text style={styles.stackText}>
                                         Florence, Italy
                                     </Text>
                                     <Image style={styles.scrollImage} source={require('../assets/florence.jpeg')} />
-                                </LinearGradient>
+                                </Pressable>
 
-                                <LinearGradient colors={['#96BBBB','white',]} style={styles.scrollStacks}>
+                                <Pressable style={styles.scrollStacks}>
                                     <Text
                                         style={styles.stackText}
                                     >
                                         Santorini, Greece
                                     </Text>
                                     <Image style={styles.scrollImage} source={require('../assets/Santorini.jpeg')} />
-                                </LinearGradient>
+                                </Pressable>
                             </ScrollView>
                         </View>
                         <View style={{ marginBottom: 80 }} />
@@ -288,7 +277,7 @@ const HomeScreen = () => {
                         />
                     </ModalFooter>
                     }
-                    modalTitle={<ModalTitle title="Select rooms and guests" />}
+                    modalTitle={<ModalTitle title="Select guests" />}
                     modalAnimation={
                         new SlideAnimation({
                             slideFrom: "bottom"
@@ -300,7 +289,7 @@ const HomeScreen = () => {
                 >
                     <ModalContent style={{ width: "100%", height: 310 }}>
                         {/* Rooms View */}
-                        <View
+                        {/* <View
                             style={{
                                 flexDirection: "row",
                                 alignItems: "center",
@@ -345,7 +334,7 @@ const HomeScreen = () => {
                                     </Text>
                                 </Pressable>
                             </Pressable>
-                        </View>
+                        </View> */}
 
                         {/* Adults View */}
                         <View
@@ -450,12 +439,26 @@ const HomeScreen = () => {
     )
 }
 
-export default HomeScreen
+export default FlightsScreen;
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: StatusBar.currentHeight,
+    },
+    datePicker: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 10,
+        borderColor: "#B19F8B",
+        borderWidth: 2,
+        paddingVertical: 15,
+    },
+    title: {
+        fontSize: 18,
+        fontWeight: '500',
+        marginVertical: 10,
+        alignSelf: 'center',
     },
     pressable: {
         flexDirection: "row",
@@ -466,20 +469,12 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         paddingVertical: 15
     },
-    datePicker: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingHorizontal: 10,
-        borderColor: "#B19F8B",
-        borderWidth: 2,
-        paddingVertical: 15,
-    },
     search: {
         paddingHorizontal: 10,
         borderColor: "#B19F8B",
         borderWidth: 2,
         paddingVertical: 15,
-        backgroundColor: "#455D64"
+        backgroundColor: "#4D5E68"
     },
     searchText: {
         textAlign: "center",
@@ -496,7 +491,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         padding: 20,
         marginHorizontal: 3,
-        backgroundColor: "#96CCCC",
+        backgroundColor: "#B1BEC4",
         flexDirection: "column"
     },
 

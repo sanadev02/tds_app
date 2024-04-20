@@ -21,7 +21,7 @@ const ConfirmationScreen = () => {
                 alignItems: "center"
             },
             headerStyle: {
-                backgroundColor: "#4D5E68",
+                backgroundColor: "#455D64",
                 height: 80,
                 borderBottomColor: "transparent",
                 shadowColor: "transparent",
@@ -29,19 +29,19 @@ const ConfirmationScreen = () => {
         })
     }, []);
     const dispatch = useDispatch();
-    const uid = auth.currentUser.uid;
+    //const uid = auth.currentUser.uid;
     const confirmBooking = async () => {
         dispatch(savedPlaces(route.params));
 
-        await setDoc(
-            doc(db, "users", `${uid}`),
-            {
-                bookingDetails: { ...route.params },
-            },
-            {
-                merge: true,
-            }
-        );
+        // await setDoc(
+        //     doc(db, "users", `${uid}`),
+        //     {
+        //         bookingDetails: { ...route.params },
+        //     },
+        //     {
+        //         merge: true,
+        //     }
+        // );
 
         navigation.navigate("Main");
     }

@@ -18,7 +18,7 @@ const BookingScreen = () => {
         alignItems: "center"
     },
     headerStyle: {
-        backgroundColor: "#4D5E68",
+        backgroundColor: "#455D64",
         height: 100,
         borderBottomColor: "transparent",
         shadowColor: "transparent",

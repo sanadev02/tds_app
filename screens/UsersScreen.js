@@ -23,7 +23,7 @@ const UsersScreen = () => {
                 alignItems: "center"
             },
             headerStyle: {
-                backgroundColor: "#4D5E68",
+                backgroundColor: "#455D64",
                 height: 80,
                 borderBottomColor: "transparent",
                 shadowColor: "transparent",
@@ -114,7 +114,7 @@ const UsersScreen = () => {
                         </Text>
                     </View>
                     <Text>
-                        You Saved {route.params.oldPrice - route.params.adults} pounds.
+                        You Saved: £{route.params.oldPrice - route.params.adults}
                     </Text>
                 </View>
                 <Pressable

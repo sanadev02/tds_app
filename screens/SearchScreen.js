@@ -5,12 +5,32 @@ import {
     View,
     SafeAreaView,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 import SearchResults from "../components/SearchResults";
-
+import { LinearGradient } from 'expo-linear-gradient';
 
 const SearchScreen = () => {
+    const navigation = useNavigation();
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerShown: true,
+            title: "Saved",
+            headerTitleStyle: {
+                fontSize: 20,
+                fontWeight: "bold",
+                color: "#B19F8B",
+                alignItems: "center"
+            },
+            headerStyle: {
+                backgroundColor: "#455D64",
+                height: 100,
+                borderBottomColor: "transparent",
+                shadowColor: "transparent",
+            }
+        })
+    }, []);
     const [input, setInput] = useState("");
     const data = [
         {
@@ -493,11 +513,15 @@ const SearchScreen = () => {
     console.log(items);
     return (
         <SafeAreaView>
-            <View style={styles.header}>
-                <TextInput value={input} onChangeText={(text) => setInput(text)} placeholder="Enter Your Destination" />
-                <Feather name="search" size={22} color="black" />
-            </View>
-            <SearchResults data={data} input={input} setInput={setInput} />
+            <LinearGradient colors={['#4D5E68', '#96BBBB', 'white',]} style={styles.page}>
+                <View >
+                    <View style={styles.header}>
+                        <TextInput value={input} onChangeText={(text) => setInput(text)} placeholder="Enter Your Destination" color="black"/>
+                        <Feather name="search" size={22} color="black" />
+                    </View>
+                    <SearchResults data={data} input={input} setInput={setInput} />
+                </View>
+            </LinearGradient>
         </SafeAreaView>
     )
 }
@@ -513,6 +537,12 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         borderColor: "#C1B891",
         borderWidth: 4,
-        borderRadius: 10
-    }
+        borderRadius: 10,
+    },
+    topHeader: {
+        paddingTop: 30, //size for android
+    },
+    page:{
+        height:'100%'
+    },
 })

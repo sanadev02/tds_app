@@ -1,5 +1,3 @@
-// Hotel Booking Screen
-
 import {
     Button,
     StyleSheet,
@@ -19,21 +17,19 @@ import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { BottomModal, ModalButton, ModalContent, ModalFooter, ModalTitle, SlideAnimation } from 'react-native-modals';
 import { LinearGradient } from 'expo-linear-gradient';
 
-const HomeScreen = () => {
+const FlightsHotelsScreen = () => {
     const navigation = useNavigation();
     const route = useRoute();
     const [rooms, setRooms] = useState(1);
     const [adults, setAdults] = useState(2);
     const [children, setChildren] = useState(0);
     const [modalVisible, setModalVisible] = useState(false);
-    const [isSelected, setSelection] = useState(false);
-
-
     const [departDate, setDepartDate] = useState(new Date());
     const [returnDate, setReturnDate] = useState(new Date());
 
@@ -42,7 +38,7 @@ const HomeScreen = () => {
             headerShown: true,
             title: "Travel Destination System",
             headerTitleStyle: {
-                fontSize: 24,
+                fontSize: 20,
                 fontWeight: "bold",
                 color: "#B19F8B",
                 alignItems: "center"
@@ -107,9 +103,7 @@ const HomeScreen = () => {
 
     return (
         <>
-            {/* <LinearGradient colors={['#4D5E68','white']}> */}
-            <LinearGradient colors={['#4D5E68', '#96BBBB', 'white',]}>
-
+            <LinearGradient colors={[ '#4D5E68','#96BBBB','white']}>
                 <View>
                     <Header />
                     <ScrollView >
@@ -119,17 +113,27 @@ const HomeScreen = () => {
                             borderWidth: 3,
                             borderRadius: 6
                         }}>
-                            {/* Destination */}
+                            {/* Departures */}
+                            <Pressable
+                                // onPress={() => navigation.navigate("Search")}
+                                style={styles.pressable}>
+                                <FontAwesome5 name="plane-departure" size={24} color="#B19F8B" />
+                                <TextInput
+                                    placeholderTextColor="black"
+                                    placeholder={route?.params ? route.params.input : "Enter Your Departure Location"} />
+                            </Pressable>
+
+                            {/* Arrivals */}
                             <Pressable
                                 onPress={() => navigation.navigate("Search")}
                                 style={styles.pressable}>
-                                <Feather name="search" size={24} color="#B19F8B" />
+                                <FontAwesome5 name="plane-arrival" size={24} color="#B19F8B" />
                                 <TextInput
                                     placeholderTextColor="black"
-                                    placeholder={route?.params ? route.params.input : "Enter Your Destination"} />
+                                    placeholder={route?.params ? route.params.input : "Enter Your Arrival Location"} />
                             </Pressable>
 
-                            {/* Destination Dates */}
+                            {/* {Destination Dates} */}
                             <View style={styles.datePicker}>
                                 <Feather name="calendar" size={24} color="#B19F8B" />
                                 <DateTimePicker
@@ -177,7 +181,7 @@ const HomeScreen = () => {
 
                             {/* Search Button */}
                             <Pressable
-                                onPress={() => searchPlaces(route?.params.input)}
+                                // onPress={() => searchPlaces(route?.params.input)}
                                 style={styles.search}>
                                 <Text style={styles.searchText}>
                                     Search
@@ -195,27 +199,21 @@ const HomeScreen = () => {
                             Explore Sustainable Travel
                         </Text>
                         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-
-                            {/* <Pressable style={styles.scrollStack}> */}
-                                <LinearGradient colors={['white','#96BBBB',]} style={styles.scrollStack}>
+                            <Pressable style={styles.scrollStack}>
                                 <FontAwesome name="plane" size={24} color="black" />
                                 <Text style={styles.stackText}>
                                     Discover eco-friendly travel options to any destination, from anywhere
                                 </Text>
-                                </LinearGradient>
-                            {/* </Pressable> */}
+                            </Pressable>
 
-                            {/* <Pressable style={styles.scrollStack}> */}
-                                <LinearGradient colors={['white','#96BBBB',]} style={styles.scrollStack}>
+                            <Pressable style={styles.scrollStack}>
                                 <Ionicons name="calendar-outline" size={24} color="black" />
                                 <Text style={styles.stackText}>
                                     Compare flight options from a range of providers, and select the greenest tickets for your journey.
                                 </Text>
-                                </LinearGradient>
-                            {/* </Pressable> */}
+                            </Pressable>
 
-                            {/* <Pressable style={styles.scrollStack}> */}
-                            <LinearGradient colors={['white','#96BBBB',]} style={styles.scrollStack}>
+                            <Pressable style={styles.scrollStack}>
                                 <AntDesign name="tago" size={24} color="black" />
                                 <Text
                                     style={{
@@ -226,7 +224,7 @@ const HomeScreen = () => {
                                 >
                                     Discover the most economical times to fly, and create Eco-Alerts to book when the price fits within your budget
                                 </Text>
-                            </LinearGradient>
+                            </Pressable>
                         </ScrollView>
 
                         <View>
@@ -241,29 +239,27 @@ const HomeScreen = () => {
                                 Trending Destinations
                             </Text>
                             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                                {/* <Pressable style={styles.scrollStacks}> */}
-                                <LinearGradient colors={['#96BBBB','white',]} style={styles.scrollStacks}>
-
+                                <Pressable style={styles.scrollStacks}>
                                     <Text style={styles.stackText}>
                                         Barcelona, Spain </Text>
                                     <Image style={styles.scrollImage} source={require('../assets/barcelona-beach.jpeg')} />
-                                </LinearGradient>
+                                </Pressable>
 
-                                <LinearGradient colors={['#96BBBB','white',]} style={styles.scrollStacks}>
+                                <Pressable style={styles.scrollStacks}>
                                     <Text style={styles.stackText}>
                                         Florence, Italy
                                     </Text>
                                     <Image style={styles.scrollImage} source={require('../assets/florence.jpeg')} />
-                                </LinearGradient>
+                                </Pressable>
 
-                                <LinearGradient colors={['#96BBBB','white',]} style={styles.scrollStacks}>
+                                <Pressable style={styles.scrollStacks}>
                                     <Text
                                         style={styles.stackText}
                                     >
                                         Santorini, Greece
                                     </Text>
                                     <Image style={styles.scrollImage} source={require('../assets/Santorini.jpeg')} />
-                                </LinearGradient>
+                                </Pressable>
                             </ScrollView>
                         </View>
                         <View style={{ marginBottom: 80 }} />
@@ -450,12 +446,20 @@ const HomeScreen = () => {
     )
 }
 
-export default HomeScreen
+export default FlightsHotelsScreen;
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: StatusBar.currentHeight,
+    },
+    datePicker: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 10,
+        borderColor: "#B19F8B",
+        borderWidth: 2,
+        paddingVertical: 15,
     },
     pressable: {
         flexDirection: "row",
@@ -466,20 +470,12 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         paddingVertical: 15
     },
-    datePicker: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingHorizontal: 10,
-        borderColor: "#B19F8B",
-        borderWidth: 2,
-        paddingVertical: 15,
-    },
     search: {
         paddingHorizontal: 10,
         borderColor: "#B19F8B",
         borderWidth: 2,
         paddingVertical: 15,
-        backgroundColor: "#455D64"
+        backgroundColor: "#4D5E68"
     },
     searchText: {
         textAlign: "center",
@@ -496,7 +492,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         padding: 20,
         marginHorizontal: 3,
-        backgroundColor: "#96CCCC",
+        backgroundColor: "#B1BEC4",
         flexDirection: "column"
     },
 

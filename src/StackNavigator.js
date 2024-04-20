@@ -17,6 +17,10 @@ import PropertyInfoScreen from '../screens/PropertyInfoScreen.js';
 import RoomsScreen from '../screens/RoomsScreen.js';
 import UsersScreen from '../screens/UsersScreen.js';
 import ConfirmationScreen from '../screens/ConfirmationScreen.js';
+import FlightsScreen from '../screens/FlightsScreen.js';
+import FlightsHotelsScreen from '../screens/FlightsHotelsScreen.js';
+import FlightOptionItem from '../components/FlightOptionItem.js';
+
 
 const StackNavigator = () => {
     const Tab = createBottomTabNavigator();
@@ -24,10 +28,10 @@ const StackNavigator = () => {
 
     function BottomTabs() {
         return (
-            <Tab.Navigator>
+            <Tab.Navigator >
                 <Tab.Screen name="Home" component={HomeScreen} options={{
                     tabBarLabel: "Home", tabBarIcon: ({ focused }) => focused ? (
-                        <Entypo name="home" size={24} color="#003580" />
+                        <Entypo name="home" size={24} color="#4D5E68" />
                     ) : (
                         <AntDesign name="home" size={24} color="black" />
                     ),
@@ -36,7 +40,7 @@ const StackNavigator = () => {
 
                 <Tab.Screen name="Saved" component={SavedScreen} options={{
                     tabBarLabel: "Saved", tabBarIcon: ({ focused }) => focused ? (
-                        <AntDesign name="heart" size={24} color="#003580" />
+                        <AntDesign name="heart" size={24} color="#4D5E68" />
                     ) : (
                         <AntDesign name="hearto" size={24} color="black" />
                     ),
@@ -45,7 +49,7 @@ const StackNavigator = () => {
 
                 <Tab.Screen name="Bookings" component={BookingScreen} options={{
                     tabBarLabel: "Bookings", tabBarIcon: ({ focused }) => focused ? (
-                        <Ionicons name="notifications" size={24} color="#003580" />
+                        <Ionicons name="notifications" size={24} color="#4D5E68" />
                     ) : (
                         <Ionicons name="notifications-outline" size={24} color="black" />
                     ),
@@ -54,7 +58,7 @@ const StackNavigator = () => {
 
                 <Tab.Screen name="Profile" component={ProfileScreen} options={{
                     tabBarLabel: "Profile", tabBarIcon: ({ focused }) => focused ? (
-                        <Ionicons name="person" size={24} color="#003580" />
+                        <Ionicons name="person" size={24} color="#4D5E68" />
                     ) : (
                         <Ionicons name="person-outline" size={24} color="black" />
                     ),
@@ -69,13 +73,16 @@ const StackNavigator = () => {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name="Main" component={BottomTabs} options={{ headerShown: false }} />
-                <Stack.Screen name="Search" component={SearchScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="Search" component={SearchScreen} options={{ headerShown: true }} />
                 <Stack.Screen name="Places" component={PlacesScreen} options={{ headerShown: true }} />
                 <Stack.Screen name="Map" component={MapScreen} options={{ headerShown: true }} />
                 <Stack.Screen name="Info" component={PropertyInfoScreen} options={{ headerShown: true }} />
                 <Stack.Screen name="Rooms" component={RoomsScreen} options={{ headerShown: true }} />
                 <Stack.Screen name="User" component={UsersScreen} options={{ headerShown: true }} />
                 <Stack.Screen name="Confirmation" component={ConfirmationScreen} options={{ headerShown: true }} />
+                <Stack.Screen name="Flights" component={FlightsScreen} options={{ headerShown: true }}/>
+                <Stack.Screen name="FlightsHotels" component={FlightsHotelsScreen} options={{ headerShown: true }}/>
+                <Stack.Screen name="Airport" component={FlightOptionItem} options={{ headerShown: true }}/>
 
             </Stack.Navigator>
         </NavigationContainer>
@@ -85,7 +92,3 @@ const StackNavigator = () => {
 export default StackNavigator
 
 const styles = StyleSheet.create({})
-
-// Tab navigator need fixing
-// Slice function in property info screen needs fixing
-// search button on home screen needs fixing

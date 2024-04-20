@@ -20,7 +20,7 @@ const PropertyInfoScreen = () => {
                 alignItems: "center"
             },
             headerStyle: {
-                backgroundColor: "#4D5E68",
+                backgroundColor: "#455D64",
                 height: 80,
                 borderBottomColor: "transparent",
                 shadowColor: "transparent",
@@ -100,7 +100,7 @@ const PropertyInfoScreen = () => {
                                 Check In
                             </Text>
                             <Text style={styles.DateRoutes}>
-                                {route.params.selectedDates.startDate}
+                                {route.params.departDate}
                             </Text>
                         </View>
 
@@ -109,7 +109,7 @@ const PropertyInfoScreen = () => {
                                 Check Out
                             </Text>
                             <Text style={styles.DateRoutes}>
-                                {route.params.selectedDates.endDate}
+                                {route.params.returnDate}
                             </Text>
                         </View>
                     </View>
@@ -139,8 +139,8 @@ const PropertyInfoScreen = () => {
                     children: route.params.children,
                     adults: route.params.adults,
                     rating: route.params.rating,
-                    startDate: route.params.selectedDates.startDate,
-                    endDate: route.params.selectedDates.endDate
+                    departDate: route.params.departDate,
+                    returnDate: route.params.returnDate
                 })}
                 style={styles.pressableAvailablity}
             >
