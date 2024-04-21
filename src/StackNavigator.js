@@ -20,6 +20,7 @@ import ConfirmationScreen from '../screens/ConfirmationScreen.js';
 import FlightsScreen from '../screens/FlightsScreen.js';
 import FlightsHotelsScreen from '../screens/FlightsHotelsScreen.js';
 import FlightOptionItem from '../components/FlightOptionItem.js';
+import AirportDestination from '../components/AirportDestination.js';
 
 
 const StackNavigator = () => {
@@ -83,6 +84,7 @@ const StackNavigator = () => {
                 <Stack.Screen name="Flights" component={FlightsScreen} options={{ headerShown: true }}/>
                 <Stack.Screen name="FlightsHotels" component={FlightsHotelsScreen} options={{ headerShown: true }}/>
                 <Stack.Screen name="Airport" component={FlightOptionItem} options={{ headerShown: true }}/>
+                <Stack.Screen name="AirportDestination" component={AirportDestination} options={{ headerShown: true }}/>
 
             </Stack.Navigator>
         </NavigationContainer>

@@ -34,7 +34,7 @@ const FlightsScreen = () => {
     const [isSelected, setSelection] = useState(false);
     const [from, setFrom] = useState('');
     const [to, setTo] = useState('');
-    const [selectedAirport, setSelectedAirport] = useState('');
+    // const [selectedAirport, setSelectedAirport] = useState('');
     const [departDate, setDepartDate] = useState(new Date());
     const [returnDate, setReturnDate] = useState(new Date());
 
@@ -103,7 +103,7 @@ const FlightsScreen = () => {
 
                             {/* Departures */}
                             <Pressable
-                                onPress={() => navigation.navigate("Airport")}
+                                onPress={() => navigation.navigate("AirportDestination")}
                                 style={styles.pressable}>
                                 <FontAwesome5 name="plane-departure" size={24} color="#B19F8B" />
                                 <TextInput
@@ -172,6 +172,19 @@ const FlightsScreen = () => {
                             </View>
 
                             {/* Search Button */}
+                            {/* <Button title="Search Flights" onPress={searchFlights} />
+                            {loading && <ActivityIndicator style={{ marginTop: 20 }} size="large" color="#0000ff" />}
+                            {flightDetails && (
+                                <View style={{ marginTop: 20 }}>
+                                    <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 10 }}>Flight Details</Text>
+                                    <Text>From ID: {flightDetails.fromId}</Text>
+                                    <Text>To ID: {flightDetails.toId}</Text>
+                                    <Text>Departure Date: {flightDetails.departDate}</Text>
+                                    <Text>Return Date: {flightDetails.returnDate}</Text>
+                                    <Text>Adults: {flightDetails.adults}</Text>
+                                    <Text>Children: {flightDetails.children}</Text>
+                                </View>
+                            )} */}
                             <Pressable
                                 onPress={onSearchPress}
                                 style={styles.search}>
