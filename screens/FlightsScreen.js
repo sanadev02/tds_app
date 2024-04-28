@@ -7,7 +7,6 @@ import {
     TextInput,
     Text,
     View,
-    Alert,
     Image
 } from 'react-native';
 import React, { useLayoutEffect, useState } from 'react';
@@ -94,12 +93,7 @@ const FlightsScreen = () => {
                 <View>
                     <Header />
                     <ScrollView>
-                        <View style={{
-                            margin: 20,
-                            borderColor: "#B19F8B",
-                            borderWidth: 3,
-                            borderRadius: 6
-                        }}>
+                        <View style={styles.viewBox}>
 
                             {/* Departures */}
                             <Pressable
@@ -458,6 +452,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: StatusBar.currentHeight,
+    },
+    viewBox:{
+        margin: 20,
+        borderColor: "#B19F8B",
+        borderWidth: 3,
+        borderRadius: 6
     },
     datePicker: {
         flexDirection: 'row',

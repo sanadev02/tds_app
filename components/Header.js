@@ -46,7 +46,7 @@ const Header = () => {
                 </Pressable>
 
                 <Pressable 
-                onPress={() => navigation.navigate('Flights')}
+                onPress={() => navigation.navigate('AirportDestination')}
                 style={{
                     flexDirection: "row",
                     alignItems: "center",
