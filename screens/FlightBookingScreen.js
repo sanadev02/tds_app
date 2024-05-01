@@ -9,7 +9,7 @@ import { Octicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-const AirportDestination = ({ flightData, Co2 }) => {
+const FlightBookingScreen = ({ flightData, Co2 }) => {
     const navigation = useNavigation();
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -377,4 +377,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default AirportDestination;
+export default FlightBookingScreen;

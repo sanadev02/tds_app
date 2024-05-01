@@ -7,7 +7,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import FlightsScreen from '../screens/FlightsScreen.js';
-import AirportDestination from '../screens/AirportDestination.js';
+import FlightBookingScreen from '../screens/FlightBookingScreen.js';
 import InfoScreen from '../screens/InfoScreen.js';
 import HomeScreen from '../screens/HomeScreen.js';
 import SearchScreen from '../screens/SearchScreen.js';
@@ -49,7 +49,7 @@ const StackNavigator = () => {
             <Stack.Navigator>
                 <Stack.Screen name="Main" component={BottomTabs} options={{ headerShown: false }} />
                 <Stack.Screen name="Flights" component={FlightsScreen} options={{ headerShown: true }} />
-                <Stack.Screen name="AirportDestination" component={AirportDestination} options={{ headerShown: true }} />
+                <Stack.Screen name="FlightBooking" component={FlightBookingScreen} options={{ headerShown: true }} />
                 <Stack.Screen name="Search" component={SearchScreen} options={{ headerShown: true }} />
                 <Stack.Screen name="Info" component={InfoScreen} options={{ headerShown: true }} />
             </Stack.Navigator>

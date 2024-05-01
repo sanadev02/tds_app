@@ -7,7 +7,7 @@ import {
     View,
     Image
 } from 'react-native';
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
@@ -51,7 +51,7 @@ const FlightsScreen = () => {
                     <ScrollView>
                         <View style={styles.viewBox}>
                             <Pressable
-                                onPress={() => navigation.navigate("AirportDestination")}
+                                onPress={() => navigation.navigate("FlightBooking")}
                                 style={styles.search}>
                                 <Text style={styles.searchText}>
                                     Press Here to Search Flight Deals!
