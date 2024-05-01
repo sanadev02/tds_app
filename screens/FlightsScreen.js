@@ -75,7 +75,7 @@ const FlightsScreen = () => {
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStack}>
                                     <Ionicons name="calendar-outline" size={24} color="black" />
                                     <Text style={styles.stackText}>
-                                        Compare flight options from a range of providers, and select the greenest tickets for your journey.
+                                        Compare flight options from a range of providers, and select the greenest tickets for your journey
                                     </Text>
                                 </LinearGradient>
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStack}>

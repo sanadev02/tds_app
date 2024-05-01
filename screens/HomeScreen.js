@@ -86,7 +86,7 @@ const HomeScreen = () => {
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStack}>
                                     <AntDesign name="tago" size={24} color="black" />
                                     <Text style={styles.stackText}>
-                                        Reward yourself guilt free with sustainable stays.
+                                        Reward yourself guilt free with sustainable stays
                                     </Text>
                                 </LinearGradient>
                             </ScrollView>
@@ -97,25 +97,24 @@ const HomeScreen = () => {
                                 Trending Destinations
                             </Text>
                             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-
                                 <LinearGradient colors={['#96BBBB', 'white',]} style={styles.scrollStacks}>
                                     <Text style={styles.stackText}>
-                                        Barcelona, Spain </Text>
-                                    <Image style={styles.scrollImage} source={require('../assets/barcelona-beach.jpeg')} />
+                                        London, United Kingdom</Text>
+                                    <Image style={styles.scrollImage} source={require('../assets/London.jpeg')} />
                                 </LinearGradient>
 
                                 <LinearGradient colors={['#96BBBB', 'white',]} style={styles.scrollStacks}>
                                     <Text style={styles.stackText}>
-                                        Florence, Italy
+                                        Edinburgh, Scotland
                                     </Text>
-                                    <Image style={styles.scrollImage} source={require('../assets/florence.jpeg')} />
+                                    <Image style={styles.scrollImage} source={require('../assets/Edinburgh.jpeg')} />
                                 </LinearGradient>
 
                                 <LinearGradient colors={['#96BBBB', 'white',]} style={styles.scrollStacks}>
                                     <Text style={styles.stackText}>
-                                        Santorini, Greece
+                                        Manchester, United Kingdom
                                     </Text>
-                                    <Image style={styles.scrollImage} source={require('../assets/Santorini.jpeg')} />
+                                    <Image style={styles.scrollImage} source={require('../assets/Manchester.jpeg')} />
                                 </LinearGradient>
                             </ScrollView>
                         </View>
