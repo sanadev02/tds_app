@@ -35,10 +35,29 @@ This README provides instructions on how to run the Travel Destionation System A
  - Navigate through the app to discover eco-friendly accommodation options, search for hotel deals, and view trending destinations.
 
 # Dependencies 
-- React Native
-- React Navigation
-- Expo
-- Expo Icons
-- Expo Linear Gradient
+
+# Install dependencies using yarn
+        yarn add react-native
+
+# Install packages using npx expo
+        npx expo install react-native-web react-dom @expo/metro-runtime
+
+# Install @react-navigation packages
+        yarn add @react-navigation/native
+        yarn add @react-navigation/native-stack
+        yarn add @react-navigation/bottom-tabs
+
+# Install react-native-modals
+        yarn add react-native-modals   
+
+# Install Axios
+        yarn add axios
+
+# Install expo-linear-gradient
+        npx expo install expo-linear-gradient
+
+# Install react-native-safe-area-context
+        yarn add react-native-safe-area-context
+
 
 Feel free to reach out for any further clarifaction or assistance!
