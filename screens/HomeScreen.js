@@ -1,12 +1,9 @@
 // Main Page - Hotel Booking
-
 import {
     Button,
     StyleSheet,
-    StatusBar,
     ScrollView,
     Pressable,
-    TextInput,
     Text,
     View,
     Image
@@ -61,6 +58,11 @@ const HomeScreen = () => {
                                     Press Here to Search Hotel Deals!
                                 </Text>
                             </Pressable>
+                        </View>
+                        <View>
+                          <Pressable
+                          >
+                          </Pressable>
                         </View>
 
                         <View style={styles.scrolls}>

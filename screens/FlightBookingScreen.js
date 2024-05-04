@@ -268,9 +268,9 @@ const FlightBookingScreen = ({ flightData, Co2 }) => {
                                     <Text>Arrival Time: {flights[0].bounds && flight.bounds[0].segments[0].arrivedAt}</Text>
 
                                     <Text style={styles.sectionTitle}>Pricing</Text>
-                                    {flight.travelerPrices[0] && flight.travelerPrices[0].price && flight.travelerPrices[0].price.markup && (
-                                        <Text>Price: ${flight.travelerPrices[0].price.markup.value}</Text>
-                                    )}
+                                    {/* {flight.travelerPrices[0] && flight.travelerPrices[0].price && flight.travelerPrices[0].price.markup && ( */}
+                                        <Text>Price: £{flight.travelerPrices[0].price.markup && flight.travelerPrices[0].price.markup.value}</Text>
+                                    {/* )} */}
 
                                     <Text style={styles.sectionTitle}>Booking Options</Text>
                                     <Pressable onPress={() => Linking.openURL(flight.shareableUrl)}>
@@ -348,7 +348,7 @@ const styles = StyleSheet.create({
         padding: 10,
         borderWidth: 1,
         borderRadius: 10,
-        backgroundColor: '#96ABBB',
+        backgroundColor: 'lightgrey',
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
