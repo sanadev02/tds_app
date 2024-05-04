@@ -60,31 +60,35 @@ const FlightsScreen = () => {
                         </View>
 
                         <View style={{ padding: 10 }}>
-                            <Text
-                                style={styles.stackTitle}
-                            >
+                            <Text style={styles.stackTitle}>
                                 Explore Sustainable Travel
                             </Text>
                             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStack}>
-                                    <FontAwesome name="plane" size={24} color="black" />
-                                    <Text style={styles.stackText}>
-                                        Discover eco-friendly travel options to any destination, from anywhere
-                                    </Text>
+                                    <Pressable onPress={() => navigation.navigate("FlightBooking")}>
+                                        <FontAwesome name="plane" size={24} color="black" />
+                                        <Text style={styles.stackText}>
+                                            Discover eco-friendly travel options to any destination, from anywhere
+                                        </Text>
+                                    </Pressable>
                                 </LinearGradient>
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStack}>
-                                    <Ionicons name="calendar-outline" size={24} color="black" />
-                                    <Text style={styles.stackText}>
-                                        Compare flight options from a range of providers, and select the greenest tickets for your journey
-                                    </Text>
+                                    <Pressable onPress={() => navigation.navigate("FlightBooking")}>
+                                        <Ionicons name="calendar-outline" size={24} color="black" />
+                                        <Text style={styles.stackText}>
+                                            Compare flight options from a range of providers, and select the greenest tickets for your journey
+                                        </Text>
+                                    </Pressable>
                                 </LinearGradient>
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStack}>
-                                    <AntDesign name="tago" size={24} color="black" />
-                                    <Text
-                                        style={styles.stackText}
-                                    >
-                                        Discover the most economical times to fly, and create Eco-Alerts to book when the price fits within your budget
-                                    </Text>
+                                    <Pressable onPress={() => navigation.navigate("FlightBooking")}>
+                                        <AntDesign name="tago" size={24} color="black" />
+                                        <Text
+                                            style={styles.stackText}
+                                        >
+                                            Discover the most economical times to fly, and create Eco-Alerts to book when the price fits within your budget
+                                        </Text>
+                                    </Pressable>
                                 </LinearGradient>
                             </ScrollView>
                         </View>
@@ -97,25 +101,32 @@ const FlightsScreen = () => {
                             </Text>
                             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                                 <LinearGradient colors={['#96BBBB', 'white',]} style={styles.scrollStacks}>
-                                    <Text style={styles.stackText}>
-                                        Barcelona, Spain </Text>
-                                    <Image style={styles.scrollImage} source={require('../assets/barcelona-beach.jpeg')} />
+                                    <Pressable onPress={() => navigation.navigate("FlightBooking")}>
+                                        <Text style={styles.stackText}>
+                                            Barcelona, Spain </Text>
+                                        <Image style={styles.scrollImage} source={require('../assets/barcelona-beach.jpeg')} />
+                                    </Pressable>
                                 </LinearGradient>
 
                                 <LinearGradient colors={['#96BBBB', 'white',]} style={styles.scrollStacks}>
-                                    <Text style={styles.stackText}>
-                                        Florence, Italy
-                                    </Text>
-                                    <Image style={styles.scrollImage} source={require('../assets/florence.jpeg')} />
+                                    <Pressable onPress={() => navigation.navigate("FlightBooking")}>
+                                        <Text style={styles.stackText}>
+                                            Florence, Italy
+                                        </Text>
+                                        <Image style={styles.scrollImage} source={require('../assets/florence.jpeg')} />
+                                    </Pressable>
+
                                 </LinearGradient>
 
                                 <LinearGradient colors={['#96BBBB', 'white',]} style={styles.scrollStacks}>
-                                    <Text
-                                        style={styles.stackText}
-                                    >
-                                        Santorini, Greece
-                                    </Text>
-                                    <Image style={styles.scrollImage} source={require('../assets/Santorini.jpeg')} />
+                                    <Pressable onPress={() => navigation.navigate("FlightBooking")}>
+                                        <Text
+                                            style={styles.stackText}
+                                        >
+                                            Santorini, Greece
+                                        </Text>
+                                        <Image style={styles.scrollImage} source={require('../assets/Santorini.jpeg')} />
+                                    </Pressable>
                                 </LinearGradient>
                             </ScrollView>
                         </View>
@@ -129,45 +140,56 @@ const FlightsScreen = () => {
                             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
 
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStackExtra}>
+                                <Pressable onPress={() => navigation.navigate("FlightBooking")}>
+
                                     <MaterialIcons name="free-cancellation" size={24} color="black" style={styles.stackIcon} />
                                     <Text style={styles.stackText}>
                                         Delays and Cancellations
                                     </Text>
+                                    </Pressable>
                                 </LinearGradient>
 
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStackExtra}>
+                                <Pressable onPress={() => navigation.navigate("FlightBooking")}>
                                     <FontAwesome name="wheelchair" size={24} color="black" style={styles.stackIcon} />
                                     <Text style={styles.stackText}>
-
                                         Special assistance
                                     </Text>
+                                    </Pressable>
                                 </LinearGradient>
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStackExtra}>
+                                <Pressable onPress={() => navigation.navigate("FlightBooking")}>
                                     <MaterialIcons name="airline-seat-recline-normal" size={24} color="black" style={styles.stackIcon} />
                                     <Text style={styles.stackText}>
-
                                         Allocated seating
                                     </Text>
+                                    </Pressable>
                                 </LinearGradient>
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStackExtra}>
+                                <Pressable onPress={() => navigation.navigate("FlightBooking")}>
                                     <FontAwesome name="plane" size={24} color="black" style={styles.stackIcon} />
                                     <Text style={styles.stackText}>
 
                                         Cancelling flights
                                     </Text>
+                                    </Pressable>
                                 </LinearGradient>
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStackExtra}>
+                                <Pressable onPress={() => navigation.navigate("FlightBooking")}>
                                     <MaterialIcons name="airplane-ticket" size={24} color="black" style={styles.stackIcon} />
                                     <Text style={styles.stackText}>
 
                                         Boarding
                                     </Text>
+                                    </Pressable>
                                 </LinearGradient>
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStackExtra}>
+                                <Pressable onPress={() => navigation.navigate("FlightBooking")}>
                                     <MaterialIcons name="luggage" size={24} color="black" style={styles.stackIcon} />
                                     <Text style={styles.stackText}>
                                         Baggage
                                     </Text>
+                                    </Pressable>
                                 </LinearGradient>
                             </ScrollView>
                         </View>
@@ -260,6 +282,7 @@ const styles = StyleSheet.create({
         color: "black",
         fontSize: 15,
         fontWeight: "500",
+        textAlign: "center"
     },
     stackIcon: {
         color: "black",

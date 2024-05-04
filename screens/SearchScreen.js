@@ -4,6 +4,8 @@ import {
     TextInput,
     View,
     SafeAreaView,
+    Button,
+    Alert,
     Pressable,
     ActivityIndicator,
     ScrollView
@@ -126,10 +128,18 @@ const SearchScreen = () => {
 
         } catch (error) {
             console.error('Error fetching location data:', error);
+            Alert.alert(
+                'Search Alert',
+                'Error fetching location data: \n Input your search as such: \n Location: City, County, Country \n Check in: YYYY-MM-DD. \n Check out: YYYY-MM-DD',
+                [
+                  { text: 'OK', onPress: () => console.log('OK Pressed') }
+                ]
+              );
         } finally {
             setLoading(false);
         }
     };
+    
 
     return (
         <>
@@ -165,6 +175,7 @@ const SearchScreen = () => {
                         </View>
 
                         <Pressable style={styles.search} onPress={handleSearch}>
+                        {/* <Button title="Show Alert" onPress={showAlert} /> */}
                             <Text style={styles.searchText}>Search Hotels</Text>
                         </Pressable>
                     </View>

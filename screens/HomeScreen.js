@@ -16,6 +16,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import Carousel from 'react-native-snap-carousel';
+
 
 const HomeScreen = () => {
     const navigation = useNavigation();
@@ -60,36 +62,44 @@ const HomeScreen = () => {
                             </Pressable>
                         </View>
                         <View>
-                          <Pressable
-                          >
-                          </Pressable>
+                            <Pressable
+                            >
+                            </Pressable>
                         </View>
 
                         <View style={styles.scrolls}>
                             <Text style={styles.scrollTitle}>
                                 Explore Sustainable Travel
                             </Text>
+
                             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
 
-                                <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStack}>
-                                    <FontAwesome6 name="hotel" size={24} color="black" />
-                                    <Text style={styles.stackText}>
-                                        Discover eco-friendly accomodation for any destination, from anywhere
-                                    </Text>
+                                <LinearGradient colors={['white', '#96BBBB',]}
+                                    style={styles.scrollStack}>
+                                    <Pressable onPress={() => navigation.navigate("Search")}>
+                                        <FontAwesome6 name="hotel" size={24} color="black" />
+                                        <Text style={styles.stackText}>
+                                            Discover eco-friendly accomodation for any destination, from anywhere
+                                        </Text>
+                                    </Pressable>
                                 </LinearGradient>
 
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStack}>
-                                    <Fontisto name="holiday-village" size={24} color="black" />
-                                    <Text style={styles.stackText}>
-                                        Compare accomodation options from a range of providers, and select the greenest options
-                                    </Text>
+                                    <Pressable onPress={() => navigation.navigate("Search")}>
+                                        <Fontisto name="holiday-village" size={24} color="black" />
+                                        <Text style={styles.stackText}>
+                                            Compare accomodation options from a range of providers, and select the greenest options
+                                        </Text>
+                                    </Pressable>
                                 </LinearGradient>
 
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStack}>
-                                    <AntDesign name="tago" size={24} color="black" />
-                                    <Text style={styles.stackText}>
-                                        Reward yourself guilt free with sustainable stays
-                                    </Text>
+                                    <Pressable onPress={() => navigation.navigate("Search")}>
+                                        <AntDesign name="tago" size={24} color="black" />
+                                        <Text style={styles.stackText}>
+                                            Reward yourself guilt free with sustainable stays
+                                        </Text>
+                                    </Pressable>
                                 </LinearGradient>
                             </ScrollView>
                         </View>
@@ -99,24 +109,31 @@ const HomeScreen = () => {
                                 Trending Destinations
                             </Text>
                             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+
                                 <LinearGradient colors={['#96BBBB', 'white',]} style={styles.scrollStacks}>
-                                    <Text style={styles.stackText}>
-                                        London, United Kingdom</Text>
-                                    <Image style={styles.scrollImage} source={require('../assets/London.jpeg')} />
+                                    <Pressable onPress={() => navigation.navigate("Search")}>
+                                        <Text style={styles.stackText}>
+                                            London, United Kingdom</Text>
+                                        <Image style={styles.scrollImage} source={require('../assets/London.jpeg')} />
+                                    </Pressable>
                                 </LinearGradient>
 
                                 <LinearGradient colors={['#96BBBB', 'white',]} style={styles.scrollStacks}>
-                                    <Text style={styles.stackText}>
-                                        Edinburgh, Scotland
-                                    </Text>
-                                    <Image style={styles.scrollImage} source={require('../assets/Edinburgh.jpeg')} />
+                                    <Pressable onPress={() => navigation.navigate("Search")}>
+                                        <Text style={styles.stackText}>
+                                            Edinburgh, Scotland
+                                        </Text>
+                                        <Image style={styles.scrollImage} source={require('../assets/Edinburgh.jpeg')} />
+                                    </Pressable>
                                 </LinearGradient>
 
                                 <LinearGradient colors={['#96BBBB', 'white',]} style={styles.scrollStacks}>
-                                    <Text style={styles.stackText}>
-                                        Manchester, United Kingdom
-                                    </Text>
-                                    <Image style={styles.scrollImage} source={require('../assets/Manchester.jpeg')} />
+                                    <Pressable onPress={() => navigation.navigate("Search")}>
+                                        <Text style={styles.stackText}>
+                                            Manchester, United Kingdom
+                                        </Text>
+                                        <Image style={styles.scrollImage} source={require('../assets/Manchester.jpeg')} />
+                                    </Pressable>
                                 </LinearGradient>
                             </ScrollView>
                         </View>
@@ -128,38 +145,48 @@ const HomeScreen = () => {
                             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
 
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStackHotel}>
-                                    <FontAwesome6 name="hotel" size={24} color="black" style={styles.stackTextHotel} />
-                                    <Text style={styles.stackTextHotel}>
-                                        Hotels
-                                    </Text>
+                                    <Pressable onPress={() => navigation.navigate("Search")}>
+                                        <FontAwesome6 name="hotel" size={24} color="black" style={styles.stackTextHotel} />
+                                        <Text style={styles.stackTextHotel}>
+                                            Hotels
+                                        </Text>
+                                    </Pressable>
                                 </LinearGradient>
 
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStackHotel}>
-                                    <MaterialIcons name="apartment" size={24} color="black" style={styles.stackTextHotel} />
-                                    <Text style={styles.stackTextApart}>
-                                        Apartments
-                                    </Text>
+                                    <Pressable onPress={() => navigation.navigate("Search")}>
+                                        <MaterialIcons name="apartment" size={24} color="black" style={styles.stackTextHotel} />
+                                        <Text style={styles.stackTextApart}>
+                                            Apartments
+                                        </Text>
+                                    </Pressable>
                                 </LinearGradient>
 
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStackHotel}>
-                                    <Fontisto name="holiday-village" size={24} color="black" style={styles.stackTextHotel} />
-                                    <Text style={styles.stackTextHotel}>
-                                        Villas
-                                    </Text>
+                                    <Pressable onPress={() => navigation.navigate("Search")}>
+                                        <Fontisto name="holiday-village" size={24} color="black" style={styles.stackTextHotel} />
+                                        <Text style={styles.stackTextHotel}>
+                                            Villas
+                                        </Text>
+                                    </Pressable>
                                 </LinearGradient>
 
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStackHotel}>
-                                    <Fontisto name="tent" size={24} color="black" style={styles.stackTextHotel} />
-                                    <Text style={styles.stackTextHotel}>
-                                        Glamping
-                                    </Text>
+                                    <Pressable onPress={() => navigation.navigate("Search")}>
+                                        <Fontisto name="tent" size={24} color="black" style={styles.stackTextHotel} />
+                                        <Text style={styles.stackTextHotel}>
+                                            Glamping
+                                        </Text>
+                                    </Pressable>
                                 </LinearGradient>
 
                                 <LinearGradient colors={['white', '#96BBBB',]} style={styles.scrollStackHotel}>
-                                    <MaterialIcons name="castle" size={24} color="black" style={styles.stackTextHotel} />
-                                    <Text style={styles.stackTextHotel}>
-                                        Castles
-                                    </Text>
+                                    <Pressable onPress={() => navigation.navigate("Search")}>
+                                        <MaterialIcons name="castle" size={24} color="black" style={styles.stackTextHotel} />
+                                        <Text style={styles.stackTextHotel}>
+                                            Castles
+                                        </Text>
+                                    </Pressable>
                                 </LinearGradient>
                             </ScrollView>
                         </View>

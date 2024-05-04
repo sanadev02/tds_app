@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect } from 'react';
-import { View, Text, StyleSheet, Button, TextInput, ActivityIndicator, TouchableOpacity, ScrollView, Pressable, Linking } from 'react-native';
+import { View, Text, StyleSheet, Alert, TextInput, ActivityIndicator, TouchableOpacity, ScrollView, Pressable, Linking } from 'react-native';
 import axios from 'axios';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
@@ -70,6 +70,13 @@ const FlightBookingScreen = ({ flightData, Co2 }) => {
 
         } catch (error) {
             console.error('Error fetching airport data:', error);
+            Alert.alert(
+                'Search Alert',
+                'Error fetching aiport data: \n Input your search as such: \n Locations: City, Country \n Dates: YYYY-MM-DD. \n Adults: 1 \n Children: 3,9',
+                [
+                  { text: 'OK', onPress: () => console.log('OK Pressed') }
+                ]
+              );
         } finally {
             setLoading(false);
         }
@@ -97,6 +104,7 @@ const FlightBookingScreen = ({ flightData, Co2 }) => {
 
         } catch (error) {
             console.error('Error fetching co2 data:', error);
+            
         } finally {
             setLoading(false);
         }
