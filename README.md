@@ -1,6 +1,6 @@
 # Voting-app
 
-This README provides instructions on how to run the Travel Destionation System App locally. 
+This README provides instructions on how to run the Travel Destination System App locally. 
 
 ## Running the Voting App Locally 
 ### Prerequisites
@@ -23,7 +23,7 @@ This README provides instructions on how to run the Travel Destionation System A
         yarn install
 
 
-3. Run the developement server:
+3. Run the development server:
 
         yarn start
 
@@ -60,4 +60,4 @@ This README provides instructions on how to run the Travel Destionation System A
         yarn add react-native-safe-area-context
 
 
-Feel free to reach out for any further clarifaction or assistance!
+Feel free to reach out for any further clarification or assistance!
