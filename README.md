@@ -1,8 +1,8 @@
-# Voting-app
+# Travel Destination System
 
 This README provides instructions on how to run the Travel Destination System App locally. 
 
-## Running the Voting App Locally 
+## Running the App Locally 
 ### Prerequisites
 
 1. Node.js and npm installed on your machine.
@@ -34,8 +34,8 @@ This README provides instructions on how to run the Travel Destination System Ap
  - Use the provided navigation to explore different screens and functionalities.
  - Navigate through the app to discover eco-friendly accommodation options, search for hotel deals, and view trending destinations.
 
-# Dependencies 
 
+# Dependencies 
 # Install dependencies using yarn
         yarn add react-native
 
