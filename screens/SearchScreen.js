@@ -46,7 +46,7 @@ const SearchScreen = () => {
         try {
             const response = await axios.get('https://booking-com13.p.rapidapi.com/languages', {
                 headers: {
-                    'X-RapidAPI-Key': 'bae448932emsh6e335567378fe30p1be387jsn9c4c319b5442',
+                    'X-RapidAPI-Key': '4d321057ccmsh61ab16c112c5f33p1f7eb2jsn236cc1c13cfc',
                     'X-RapidAPI-Host': 'booking-com13.p.rapidapi.com'
                 }
             });
@@ -70,7 +70,7 @@ const SearchScreen = () => {
         try {
             const response = await axios.get('https://booking-com13.p.rapidapi.com/languages', {
                 headers: {
-                    'X-RapidAPI-Key': 'bae448932emsh6e335567378fe30p1be387jsn9c4c319b5442',
+                    'X-RapidAPI-Key': '4d321057ccmsh61ab16c112c5f33p1f7eb2jsn236cc1c13cfc',
                     'X-RapidAPI-Host': 'booking-com13.p.rapidapi.com'
                 }
             });
@@ -118,7 +118,7 @@ const SearchScreen = () => {
                     currency_code: formData.currency_code
                 },
                 headers: {
-                    'X-RapidAPI-Key': 'bae448932emsh6e335567378fe30p1be387jsn9c4c319b5442',
+                    'X-RapidAPI-Key': '4d321057ccmsh61ab16c112c5f33p1f7eb2jsn236cc1c13cfcc',
                     'X-RapidAPI-Host': 'booking-com13.p.rapidapi.com'
                 }
             });
