@@ -118,7 +118,7 @@ const SearchScreen = () => {
                     currency_code: formData.currency_code
                 },
                 headers: {
-                    'X-RapidAPI-Key': '4d321057ccmsh61ab16c112c5f33p1f7eb2jsn236cc1c13cfcc',
+                    'X-RapidAPI-Key': '4d321057ccmsh61ab16c112c5f33p1f7eb2jsn236cc1c13cfc',
                     'X-RapidAPI-Host': 'booking-com13.p.rapidapi.com'
                 }
             });
