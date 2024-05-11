@@ -185,7 +185,7 @@ const SearchScreen = () => {
                         {locationSearch && locationSearch.map((hotel, index) => (
                             <View style={styles.hotelContainer} key={index}>
                                 <Text style={styles.hotelName}>Hotel Name: {hotel.displayName && hotel.displayName.text}</Text>
-                                {/* <Text>Photos: {hotel.basicPropertyData && hotel.basicPropertyData.photos.main.highResUrl.relativeUrl}</Text> */}
+                                {/* <Text>Photos: {hotel.basicPropertyDwwata && hotel.basicPropertyData.photos.main.highResUrl.relativeUrl}</Text> */}
                                 <Text style={styles.hotelInfo}>Address: {hotel.basicPropertyData && hotel.basicPropertyData.location.address}</Text>
                                 <Text style={styles.hotelInfo}>City: {hotel.basicPropertyData && hotel.basicPropertyData.location.city}</Text>
                                 <Text style={styles.hotelInfo}>Location: {hotel.location && hotel.location.displayLocation}</Text>
